@@ -27,7 +27,7 @@ jobs:
         run: |
           VERSION="${tag#v}"
           echo "Release notes for version $VERSION"
-          RELEASEVERSION="[$VERSION]"
+          RELEASEVERSION="$VERSION"
           echo "Version: $RELEASEVERSION"
           RELEASENOTES=$(awk -v ver="$RELEASEVERSION" '/^## / { if (p) { exit }; if ($2 == ver) { p=1; next } } p && NF' docs/docs/release-notes.md)
           {
